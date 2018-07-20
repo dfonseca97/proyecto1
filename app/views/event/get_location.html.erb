@@ -1,0 +1,24 @@
+<h1>Event#get_location</h1>
+<body>
+<script>
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        document.write("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+   document.write("Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude);
+}
+
+
+window.setInterval(getLocation, 1000);
+
+
+
+</script>
+</body>
