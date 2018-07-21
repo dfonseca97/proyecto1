@@ -1,24 +1,40 @@
-<h1>Event#get_location</h1>
+
 <body>
 <script>
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(storePosition);
     } else { 
         document.write("Geolocation is not supported by this browser.");
     }
 }
 
 function showPosition(position) {
+   
    document.write("Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude);
+
 }
 
+function storePosition(position){
+
+	window.open("store?latitude=" + position.coords.latitude +
+		"&longitude=" + position.coords.longitude,"_self");
+}
 
 window.setInterval(getLocation, 1000);
 
-
-
 </script>
+
+	<% while !@locations.empty? %>
+        <% coordinate = @locations.pop %>
+        <br><h3> Coordinate <%= coordinate.id %> </h3>
+        <ul>
+        	<li> <b>UserId:</b> <%= coordinate.user %></li>
+        	<li> <b>Latitude:</b> <%= coordinate.y %></li>
+        	<li> <b>Longitude:</b> <%= coordinate.x %></li>
+        </ul>
+	<% end %>
+
 </body>
