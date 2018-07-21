@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'event/get_location'
+  get 'event/map'
   get 'event/store'
   root :to =>'home#index'
 
