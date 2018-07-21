@@ -13,7 +13,7 @@ class EventController < ApplicationController
   	   latitude = params[:latitude]
   	   longitude = params[:longitude]
 
-  	   @event = Event.new(user: 1, y: latitude, x: longitude)
+  	   @event = Event.new(user: current_user.id, y: latitude, x: longitude)
 
   	   if @event.save then
 
