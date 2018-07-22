@@ -1,11 +1,13 @@
 class EventController < ApplicationController
 
+  #Controller for the page that receives the geographic coordinates of the client.
   def get_location
 
   	@locations = Event.last(10)
   	
   end
 
+  #Stores the received coordinates in the database depending on the current signed in user.
   def store 
 
     respond_to do |format|
@@ -30,6 +32,7 @@ class EventController < ApplicationController
 
   end
 
+  #Creates a Google Maps link with the coordinates of the current logged in user.
   def map
 
     @user_events = Event.where(user: current_user.id)
