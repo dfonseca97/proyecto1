@@ -1,14 +1,13 @@
 <% if user_signed_in? %>
 
 <h3>you have succesfully signed in</h3>
+<%= link_to "app", event_get_location_path, :method => :get %> <br>
+<%= link_to "map", event_get_date_path, :method => :get %> <br>
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<%= link_to "app", event_get_location_path, :method => :get %>
-<%= link_to "map", event_get_date_path, :method => :get %>
-
 <% else %>
 
 <h1> Log in</h1>
-<%= link_to "Sign In", new_user_session_path, :method => :get %>
+<%= link_to "Sign In", new_user_session_path, :method => :get %> <br>
 <%= link_to "Sign up", new_user_registration_path, :method => :get %>
 
 <% end %>

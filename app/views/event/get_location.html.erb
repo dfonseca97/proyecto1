@@ -1,5 +1,6 @@
 
 <body>
+
 <script>
 
 function getLocation() {
@@ -27,14 +28,10 @@ window.setInterval(getLocation, 1000);
 
 </script>
 
-	<% while !@locations.empty? %>
-        <% coordinate = @locations.pop %>
-        <br><h3> Coordinate <%= coordinate.id %> </h3>
-        <ul>
-        	<li> <b>UserId:</b> <%= coordinate.user %></li>
-        	<li> <b>x:</b> <%= coordinate.x %></li>
-        	<li> <b>y:</b> <%= coordinate.y %></li>
-        </ul>
-	<% end %>
+ Storing locations...
+
+<br>
+<%= link_to "map", event_get_date_path, :method => :get %> <br>
+<%= link_to "back", root_path, :method => :get %>
 
 </body>
