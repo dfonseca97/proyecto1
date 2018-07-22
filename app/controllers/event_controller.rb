@@ -33,13 +33,14 @@ class EventController < ApplicationController
   def map
 
     @user_events = Event.where(user: current_user.id)
+    @link = "https://www.google.es/maps/dir/"
 
     @user_events.each do |coords|
       
-      @link = "https://www.google.es/maps/dir/" + "'" + coords.y.to_s + "," + coords.x.to_s + "'" + "/"
+      @link.concat("'" + coords.y.to_s + "," + coords.x.to_s + "'" + "/")
     
     end
-  
+    
     redirect_to @link
 
   end
