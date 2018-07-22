@@ -32,13 +32,34 @@ class EventController < ApplicationController
 
   end
 
+  #Creates a date interval for the route to generate.
+  def get_date 
+
+  end
+
+
   #Creates a Google Maps link with the coordinates of the current logged in user.
   def map
 
+    @starting_date = params[:starting][:date_1]
+    @ending_date = params[:ending][:date_2]
     @user_events = Event.where(user: current_user.id)
+    @result = Array.new
+
+    @user_events.each do |event|
+
+      if((event.created_at.to_time >= @starting_date.to_time) && 
+        (event.created_at.to_time <= @ending_date.to_time)) then
+
+        @result << event
+
+      end
+
+    end
+
     @link = "https://www.google.es/maps/dir/"
 
-    @user_events.each do |coords|
+    @result.each do |coords|
       
       @link.concat("'" + coords.y.to_s + "," + coords.x.to_s + "'" + "/")
     
