@@ -2,8 +2,6 @@ class EventController < ApplicationController
 
   #Controller for the page that receives the geographic coordinates of the client.
   def get_location
-
-  	@locations = Event.last(10)
   	
   end
 
