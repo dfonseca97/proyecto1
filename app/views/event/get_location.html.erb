@@ -3,6 +3,7 @@
 
 <script>
 
+//Checks if the browser supports geolocation.
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(storePosition);
@@ -11,6 +12,8 @@ function getLocation() {
     }
 }
 
+/*
+Used to print the current coordinates.
 function showPosition(position) {
    
    document.write("Latitude: " + position.coords.latitude + 
@@ -18,12 +21,17 @@ function showPosition(position) {
 
 }
 
+*/
+
+//Sends the coordinates as an http request for them to be stored on the database.
 function storePosition(position){
 
 	window.open("store?latitude=" + position.coords.latitude +
 		"&longitude=" + position.coords.longitude,"_self");
 }
 
+
+//Repeat the process every second.
 window.setInterval(getLocation, 1000);
 
 </script>
