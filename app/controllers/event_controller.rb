@@ -2,10 +2,7 @@ class EventController < ApplicationController
 
   #Controller for the page that receives the geographic coordinates of the client.
   def get_location
-<<<<<<< HEAD
 
-=======
->>>>>>> b5e29c15d98e80571ad6f39714c2dc07c3a87ca2
   	
   end
 
