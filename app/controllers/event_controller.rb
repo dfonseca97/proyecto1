@@ -19,7 +19,7 @@ class EventController < ApplicationController
 
   	   if @event.save then
 
-  		   format.html{redirect_to event_get_location_path}
+  		   format.html{redirect_to "https://dfonseca.dis.eafit.edu.co/event/get_location"}
 
   	   else
 

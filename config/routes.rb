@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options protocol: :https
   devise_for :users
   get 'event/get_location'
   get 'event/map'
