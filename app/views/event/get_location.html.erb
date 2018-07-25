@@ -25,15 +25,19 @@ function showPosition(position) {
 
 //Sends the coordinates as an http request for them to be stored on the database.
 function storePosition(position){
-
-	window.open("https://dfonseca.dis.eafit.edu.co/event/store?latitude=" + position.coords.latitude +
-		"&longitude=" + position.coords.longitude,"_self");
+        
+        var original_url = window.location.href;
+        var store_url = "store?latitude=" + position.coords.latitude +
+		"&longitude=" + position.coords.longitude;
+        var url = original_url.slice(0,original_url.indexOf("get_location")) + store_url;
+	window.open(url, "_self");
+  
 }
 
 
 //Repeat the process every second.
-window.setInterval(getLocation, 1000);
-
+//window.setInterval(getLocation, 1000);
+getLocation();
 </script>
 
  Storing locations...

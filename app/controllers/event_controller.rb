@@ -19,8 +19,10 @@ class EventController < ApplicationController
 
        #If the event is saved returns to the get location method to get the next coordinates to store.
   	   if @event.save then
-
-  		   format.html{redirect_to "https://dfonseca.dis.eafit.edu.co/event/get_location"}
+                   
+                   url = request.original_url.sub("http", "https")
+                   url = url.sub("store", "get_location")
+  		   format.html{redirect_to url}
 
   	   else
 
