@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   default_url_options protocol: :https
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   get 'event/get_location'
   get 'event/map'
   get 'event/store'

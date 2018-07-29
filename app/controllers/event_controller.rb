@@ -72,7 +72,6 @@ class EventController < ApplicationController
     end
     
     #Redirects to Google Maps.
-    redirect_to @link
 
   end
 

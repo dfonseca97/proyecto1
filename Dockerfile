@@ -7,3 +7,4 @@ COPY Gemfile.lock /railsApp/Gemfile.lock
 RUN bundle install
 COPY . /railsApp
 RUN rake db:migrate
+RUN rake assets:precompile
