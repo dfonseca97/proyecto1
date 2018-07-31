@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   get 'event/get_date'
   root :to =>'home#index'
 
+  namespace :api, default: {format: 'json'} do
+
+  	resources :location, only: [:create]
+  	
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
